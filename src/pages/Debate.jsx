@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const participants = [
@@ -16,6 +16,35 @@ const aiInterpretation = {
 const Debate = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const [displayedInterpretation, setDisplayedInterpretation] = useState('');
+  const [displayedCulturalContext, setDisplayedCulturalContext] = useState('');
+
+  useEffect(() => {
+    // 해석 텍스트 한 글자씩 표시
+    let interpretationIndex = 0;
+    const interpretationInterval = setInterval(() => {
+      if (interpretationIndex < aiInterpretation.interpretation.length) {
+        setDisplayedInterpretation(aiInterpretation.interpretation.slice(0, interpretationIndex + 1));
+        interpretationIndex++;
+      } else {
+        clearInterval(interpretationInterval);
+        // 해석이 완료된 후 문화적 맥락 시작
+        let culturalIndex = 0;
+        const culturalInterval = setInterval(() => {
+          if (culturalIndex < aiInterpretation.culturalContext.length) {
+            setDisplayedCulturalContext(aiInterpretation.culturalContext.slice(0, culturalIndex + 1));
+            culturalIndex++;
+          } else {
+            clearInterval(culturalInterval);
+          }
+        }, 30); // 30ms마다 한 글자씩
+      }
+    }, 30); // 30ms마다 한 글자씩
+
+    return () => {
+      clearInterval(interpretationInterval);
+    };
+  }, []);
 
   const handleRequestSpeech = () => {
     setShowModal(true);
@@ -121,13 +150,19 @@ const Debate = () => {
             </div>
             <div className="mb-4">
               <p className="text-sm text-gray-700 leading-relaxed">
-                {aiInterpretation.interpretation}
+                {displayedInterpretation}
+                {displayedInterpretation.length < aiInterpretation.interpretation.length && (
+                  <span className="inline-block w-0.5 h-4 bg-gray-700 ml-1 animate-pulse">|</span>
+                )}
               </p>
             </div>
             <div className="pt-4 border-t border-blue-200">
               <p className="text-xs font-semibold text-gray-600 mb-2">문화적 맥락:</p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                {aiInterpretation.culturalContext}
+                {displayedCulturalContext}
+                {displayedCulturalContext.length < aiInterpretation.culturalContext.length && (
+                  <span className="inline-block w-0.5 h-4 bg-gray-700 ml-1 animate-pulse">|</span>
+                )}
               </p>
             </div>
           </div>
