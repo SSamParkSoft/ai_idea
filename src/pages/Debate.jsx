@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const participants = [
   { id: 2, name: '압둘', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704e', country: '한국', speaking: true },
@@ -14,12 +15,17 @@ const aiInterpretation = {
 
 const Debate = () => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleRequestSpeech = () => {
     setShowModal(true);
     setTimeout(() => {
       setShowModal(false);
     }, 2000);
+  };
+
+  const handleLeaveDebate = () => {
+    navigate('/');
   };
 
   return (
@@ -126,6 +132,17 @@ const Debate = () => {
             </div>
           </div>
         </div>
+              {/* Leave Debate Button */}
+      <div className="container mx-auto px-8 pt-10">
+        <div className="flex justify-center">
+          <button
+            onClick={handleLeaveDebate}
+            className="btn bg-red-700 hover:bg-red-600 text-white px-8 py-3 text-lg font-semibold"
+          >
+            토론 나가기
+          </button>
+        </div>
+      </div>
         </div>
       </div>
       </div>
