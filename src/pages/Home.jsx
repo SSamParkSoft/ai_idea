@@ -44,10 +44,19 @@ const Home = () => {
   return (
     <div className="bg-background h-full overflow-y-auto">
       <div className="container mx-auto p-8">
+
+      <div className="flex justify-between items-center">
         <header className="mb-8">
           <h1 className="text-4xl font-bold text-text-primary">안녕하세요, {userName}님!</h1>
           <p className="text-lg text-text-secondary mt-2">오늘도 즐거운 하루 보내세요.</p>
         </header>
+
+        <div className="flex justify-end mb-8">
+            <Link to="/debate_mine" className="btn btn-primary px-6 py-3 text-base font-semibold">
+              토론 생성하기
+            </Link>
+          </div>
+      </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main column */}
