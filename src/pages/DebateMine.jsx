@@ -61,7 +61,7 @@ const DebateMine = () => {
     }
     // 토론 생성 로직 (나중에 구현)
     console.log('토론 생성:', { topic, selectedFriends });
-    navigate('/');
+    navigate('/debate_mine_result');
   };
 
   return (

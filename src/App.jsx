@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Debate from './pages/Debate';
+import DebateMineResult from './pages/DebateMineResult';
 import DebateMine from './pages/DebateMine';
 import TodayQuestion from './pages/TodayQuestion';
 import Chat from './pages/Chat';
@@ -33,6 +34,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/debate" element={<Debate />} />
         <Route path="/debate_mine" element={<DebateMine />} />
+        <Route path="/debate_mine_result" element={<DebateMineResult />} />
         <Route path="/today-question" element={<TodayQuestion />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/mypage" element={<MyPage />} />
