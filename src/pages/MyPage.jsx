@@ -1,7 +1,7 @@
 import React from 'react';
 
 const userInfo = {
-  name: '나타샤',
+  name: '박종인',
   avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
   country: '한국',
   email: 'natasha@example.com',

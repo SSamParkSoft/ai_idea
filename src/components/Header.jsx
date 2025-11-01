@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/사잇말로고.svg';
 
 const Header = () => {
   const [showSettings, setShowSettings] = useState(false);
@@ -8,9 +9,7 @@ const Header = () => {
     <header className="bg-surface text-text-primary p-4 border-b border-gray-200 sticky top-0 z-40">
       <div className="container flex justify-between items-center mx-auto">
         <div className="flex items-center gap-2">
-          <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-          </svg>
+          <img src={logo} alt="사잇말" className="w-14 h-14" />
           <h1 className="text-2xl font-bold text-primary">사잇말</h1>
         </div>
         <nav>

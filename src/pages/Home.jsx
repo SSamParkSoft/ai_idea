@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Placeholder data
-const userName = "나타샤";
+const userName = "박종인";
 const todayDebateCompleted = false; // Change this to true to see the "completed" state
 // const todayQuestionAnswered = false; // Change this to true to see the "answered" state
 const friends = [
   { id: 1, name: '압둘', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704e' },
-  { id: 2, name: '매리', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704f' },
+  { id: 2, name: '정예주', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704f' },
   { id: 3, name: '압둘라', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704a' },
 ];
 const notifications = [

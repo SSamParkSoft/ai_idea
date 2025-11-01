@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 
 const friends = [
   { id: 1, name: '압둘', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704e', lastMessage: '응, 당연하지! 언제 시간 돼?', online: true },
-  { id: 2, name: '매리', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704f', lastMessage: '나중에 프로젝트 회의하자.', online: false },
+  { id: 2, name: '정예주', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704f', lastMessage: '나중에 프로젝트 회의하자.', online: false },
   { id: 3, name: '압둘라', avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026704a', lastMessage: '사진 고마워!', online: true },
 ];
 
 const initialMessages = {
   1: [
-    { id: 1, user: '압둘', text: '나타샤, 주말에 뭐해?' },
+    { id: 1, user: '압둘', text: '종인아, 주말에 뭐해?' },
     { id: 2, user: 'me', text: '아직 특별한 계획은 없어. 왜?' },
     { id: 3, user: '압둘', text: '같이 영화 볼래? 새로 나온 거 재밌대.' },
     { id: 4, user: 'me', text: '좋아! 몇 시에 볼까?' },
     { id: 5, user: '압둘', text: '응, 당연하지! 언제 시간 돼?' },
   ],
   2: [
-    { id: 1, user: '매리', text: '나중에 프로젝트 회의하자.' },
+    { id: 1, user: '정예주', text: '나중에 프로젝트 회의하자.' },
   ],
   3: [
     { id: 1, user: '압둘라', text: '사진 고마워!' },
