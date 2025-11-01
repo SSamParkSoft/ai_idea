@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Placeholder data
@@ -17,6 +17,30 @@ const notifications = [
 ];
 
 const Home = () => {
+  const [timeLeft, setTimeLeft] = useState(31 * 60 + 52); // 31분 52초 = 1912초
+
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setInterval(() => {
+        setTimeLeft(prev => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            return 0;
+          }
+          return prev + 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [timeLeft]);
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes}:${secs.toString().padStart(2, '0')}`;
+  };
+
   return (
     <div className="bg-background h-full overflow-y-auto">
       <div className="container mx-auto p-8">
@@ -31,16 +55,21 @@ const Home = () => {
           {/* Today's Debate */}
           <div className="bg-surface p-6 rounded-xl shadow-lg">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-text-primary">오늘의 토론 주제</h2>
+              <h2 className="text-2xl font-bold text-text-primary">초대받은 토론</h2>
               {todayDebateCompleted ? (
                 <span className="text-sm font-semibold text-green-600">완료</span>
               ) : (
-                <span className="text-sm font-semibold text-gray-500">미완료</span>
+                <span className="text-sm font-semibold text-gray-500 font-mono">{formatTime(timeLeft)}</span>
               )}
             </div>
             <p className="text-lg text-text-secondary mb-4">"인공지능은 인류에게 위협이 될 것인가, 아니면 새로운 기회를 제공할 것인가?"</p>
-            <div className="flex justify-end">
-              <Link to="/debate" className="btn btn-primary">토론 참여하기</Link>
+            <div className= "flex justify-end gap-2">
+              <div className="flex justify-end">
+                <Link to="/debate" className="btn btn-primary">토론 참여하기</Link>
+              </div>
+              <div className="flex justify-end">
+                <Link to="/" className="btn bg-red-700 hover:bg-red-600">토론 거절하기</Link>
+              </div>
             </div>
           </div>
 
