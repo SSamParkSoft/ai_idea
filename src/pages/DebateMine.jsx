@@ -185,7 +185,7 @@ const DebateMine = () => {
           <div className="flex justify-end gap-4">
             <button
               onClick={() => navigate('/')}
-              className="btn bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 text-lg font-semibold"
+              className="btn bg-[#797378] hover:bg-opacity-90 text-white px-8 py-3 text-lg font-semibold"
             >
               취소
             </button>

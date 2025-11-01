@@ -172,7 +172,7 @@ const Debate = () => {
         <div className="flex justify-center">
           <button
             onClick={handleLeaveDebate}
-            className="btn bg-red-700 hover:bg-red-600 text-white px-8 py-3 text-lg font-semibold"
+            className="btn bg-[#797378] hover:bg-opacity-90 text-white px-8 py-3 text-lg font-semibold"
           >
             토론 나가기
           </button>

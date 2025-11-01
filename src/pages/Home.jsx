@@ -77,7 +77,7 @@ const Home = () => {
                 <Link to="/debate" className="btn btn-primary">토론 참여하기</Link>
               </div>
               <div className="flex justify-end">
-                <Link to="/" className="btn bg-red-700 hover:bg-red-600">토론 거절하기</Link>
+                <Link to="/" className="btn bg-[#797378] hover:bg-opacity-90">토론 거절하기</Link>
               </div>
             </div>
           </div>

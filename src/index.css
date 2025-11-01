@@ -22,7 +22,7 @@ html, body, #root {
     @apply px-4 py-2 rounded-md font-semibold text-white transition-colors duration-300;
   }
   .btn-primary {
-    @apply bg-primary hover:bg-opacity-90;
+    @apply bg-orange-500 hover:bg-opacity-90;
   }
   .btn-accent {
     @apply bg-accent hover:bg-opacity-90;
